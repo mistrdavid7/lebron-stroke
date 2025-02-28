@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url('/img/fist.png'), auto;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.background-img {
+    width: 600px; /* Nastav rozměry podle potřeby */
+}
+
+.overlay-img {
+    position: absolute;
+    width: 120px; /* Velikost obrázku dih.png */
+    top: 33%; /* Uprav výšku, aby odpovídalo */
+    left: 63%; /* Uprav horizontální pozici */
+    transform: translate(50%, -78%); /* Posun, aby byl obrázek centrovaný */
+}
+
+img {
+    pointer-events: none;  /* Zakáže jakoukoliv interakci */
+    user-drag: none;       /* Zakáže přetahování */
+    -webkit-user-drag: none; /* Pro Chrome/Safari */
+    user-select: none;     /* Zakáže označování */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    draggable: false;      /* Dodatečně zakáže drag & drop */
+}
+
+/* Neviditelná vrstva přes celou stránku */
+.overlay-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent; /* Aby nebyla vidět */
+    pointer-events: all; /* Blokuje klikání na cokoliv pod ní */
+    z-index: 9999; /* Přes všechny prvky */
+}
