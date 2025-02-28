@@ -66,3 +66,41 @@ img {
     z-index: 10000;
     transition: top 0.2s ease-in-out; /* Hladká animace pohybu */
 }
+
+
+
+/* Wrapper pro progress bar */
+.progress-wrapper {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Nadpis nad progress barem */
+.progress-wrapper h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Progress bar */
+.progress-container {
+    width: 90%; /* Délka téměř přes celou stránku */
+    height: 30px; /* Zvýšená výška */
+    background-color: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #999; /* Silnější rámeček */
+}
+
+/* Samotný progress bar */
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #4caf50; /* Zelená barva progressu */
+    transition: width 0.2s ease-out; /* Plynulá animace */
+}
