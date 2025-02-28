@@ -6,7 +6,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: url('/img/fist.png'), auto;
+    overflow: hidden; /* Zabrání posouvání stránky */
+}
+
+/* Zakáže interakci s obrázky */
+img {
+    pointer-events: none;  /* Zakáže klikání */
+    user-drag: none;       /* Zakáže přetahování */
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    draggable: false;
 }
 
 .container {
@@ -15,26 +27,15 @@ body {
 }
 
 .background-img {
-    width: 600px; /* Nastav rozměry podle potřeby */
+    width: 600px;
 }
 
 .overlay-img {
     position: absolute;
-    width: 120px; /* Velikost obrázku dih.png */
-    top: 33%; /* Uprav výšku, aby odpovídalo */
-    left: 63%; /* Uprav horizontální pozici */
-    transform: translate(50%, -78%); /* Posun, aby byl obrázek centrovaný */
-}
-
-img {
-    pointer-events: none;  /* Zakáže jakoukoliv interakci */
-    user-drag: none;       /* Zakáže přetahování */
-    -webkit-user-drag: none; /* Pro Chrome/Safari */
-    user-select: none;     /* Zakáže označování */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    draggable: false;      /* Dodatečně zakáže drag & drop */
+    width: 120px;
+    top: 33%;
+    left: 63%;
+    transform: translate(50%, -78%);
 }
 
 /* Neviditelná vrstva přes celou stránku */
@@ -44,7 +45,24 @@ img {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: transparent; /* Aby nebyla vidět */
-    pointer-events: all; /* Blokuje klikání na cokoliv pod ní */
-    z-index: 9999; /* Přes všechny prvky */
+    background: transparent;
+    pointer-events: all;
+    z-index: 9999;
+}
+
+/* Skryje normální kurzor při přichycení */
+.locked-cursor {
+    cursor: none;
+}
+
+/* Větší custom kurzor */
+.custom-cursor {
+    position: fixed;
+    width: 64px;  /* Zvýšená velikost kurzoru */
+    height: 64px;
+    background: url('img/fist.png') no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 10000;
+    transition: top 0.2s ease-in-out; /* Hladká animace pohybu */
 }
